@@ -1,32 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Seleciona o conteúdo principal e adiciona a classe 'visible' quando a página é carregada
     const mainContent = document.querySelector("main");
     mainContent.classList.add("visible");
-});
 
-// Seleciona o botão do hambúrguer e o menu
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('nav ul');
+    // Seleciona o botão do hambúrguer e o menu de navegação
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
 
-// Adiciona o evento de clique ao botão do hambúrguer
-hamburger.addEventListener('click', () => {
-    // Alterna a classe 'active' no botão do hambúrguer
-    hamburger.classList.toggle('active');
+    // Adiciona o evento de clique ao botão do hambúrguer
+    hamburger.addEventListener('click', () => {
+        // Alterna a classe 'active' no botão do hambúrguer
+        hamburger.classList.toggle('active');
+        // Alterna a classe 'show' no menu de navegação
+        navMenu.classList.toggle('show');
+    });
 
-    // Alterna a classe 'show' no menu
-    navMenu.classList.toggle('show');
-});
-
-document.addEventListener("DOMContentLoaded", function() {
+    // Seleciona a seção 'loc' e os elementos animados
     const locSection = document.querySelector('.loc');
     const animatedElements = document.querySelectorAll('.animate-up');
     const button = document.querySelector('.btn');
     let buttonInView = false;
 
+    // Função para verificar a posição do scroll
     const checkScroll = () => {
         const locSectionTop = locSection.getBoundingClientRect().top;
         const halfViewportHeight = window.innerHeight / 2;
 
-        // Verificar se a seção "loc" está visível na tela
+        // Verifica se a seção 'loc' está visível na tela
         if (locSectionTop < halfViewportHeight) {
             animatedElements.forEach(element => {
                 element.classList.add('in-view');
@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    // Adicionar um ouvinte de evento de scroll à janela
+    // Adiciona um ouvinte de evento de scroll à janela
     window.addEventListener('scroll', () => {
         checkScroll();
-        // Adicionar ou remover classe 'hide' no botão
+        // Adiciona ou remove a classe 'hide' no botão
         if (buttonInView) {
             button.classList.remove('hide');
         } else {
@@ -51,24 +51,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Verificar a posição do scroll ao carregar a página
+    // Verifica a posição do scroll ao carregar a página
     checkScroll();
-});
 
-
-document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona os links de navegação e o logo
     const navLinks = document.querySelectorAll('.nav-list a, .logo a');
 
-    // Adiciona a classe fade-in quando a página é carregada
+    // Adiciona a classe 'fade-in' quando a página é carregada
     document.body.classList.add('fade-in');
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault(); // Previne o comportamento padrão do link
-            
             const targetUrl = this.href;
 
-            // Adiciona a classe fade-out ao corpo
+            // Adiciona a classe 'fade-out' ao corpo
             document.body.classList.add('fade-out');
 
             // Aguarda a animação completar antes de navegar
@@ -77,32 +74,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500); // Ajuste este valor de acordo com a duração da animação
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    const produtos = document.querySelectorAll('.produtos');
-
-    function checkScroll() {
-        produtos.forEach(function(produto) {
-            const produtoTop = produto.getBoundingClientRect().top;
-            const viewportHeight = window.innerHeight;
-
-            if (produtoTop < viewportHeight - 50) { // Adiciona um pequeno offset
-                produto.classList.add('show');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Verifica inicialmente se algum produto já está na tela
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona os produtos e a seção 'hist'
     const produtos = document.querySelectorAll('.produtos');
     const hist = document.querySelector('.hist');
 
-    function checkScroll() {
+    // Função para verificar a posição do scroll para os produtos
+    function checkScrollProdutos() {
         produtos.forEach(function(produto) {
             const produtoTop = produto.getBoundingClientRect().top;
             const viewportHeight = window.innerHeight;
@@ -119,33 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Verifica inicialmente se algum elemento já está na tela
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const elements = document.querySelectorAll('.animate-up');
-    
-    elements.forEach(function(element) {
-        element.classList.add('in-view');
-    });
-});
-
-let searchBar = document.querySelector('.search-bar');
-
-
-searchBar.addEventListener('input', () => {
-    const searchTerm = searchBar.value.toLowerCase();
-
-    musicList.forEach((music, index) => {
-        const musicName = music.textContent.toLowerCase();
-
-        if (musicName.includes(searchTerm)) {
-            music.style.display = 'flex';
-        } else {
-            music.style.display = 'none';
-        }
-    });
+    // Adiciona um ouvinte de evento de scroll à janela
+    window.addEventListener('scroll', checkScrollProdutos);
+    checkScrollProdutos(); // Verifica inicialmente se algum produto já está na tela
 });
