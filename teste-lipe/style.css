@@ -1,3 +1,4 @@
+/* Estilos globais */
 body {
     margin: 0;
     font-family: 'Times New Roman', serif;
@@ -6,7 +7,23 @@ body {
     overflow-x: hidden;
 }
 
-/* Centraliza os links da navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #0a0b0d;
+    position: relative;
+}
+
+.logo img {
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 10px;
+    zoom: 650%;
+}
+
+/* Navegação principal */
 nav ul {
     display: flex;
     justify-content: center;
@@ -16,13 +33,14 @@ nav ul {
 
 nav ul li {
     margin: 0 15px;
+    position: relative;
 }
 
 nav a {
     text-decoration: none;
     color: white;
     font-size: 18px;
-    padding: 10px 15px;
+    padding: 100px 15px;
     transition: background-color 0.3s ease;
 }
 
@@ -30,24 +48,124 @@ nav a:hover {
     color: #f39c12;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
+/* Submenu */
+nav ul li ul.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
     background-color: #0a0b0d;
+    padding: 10px;
+    list-style: none;
+    z-index: 10;
+    width: 200px;
 }
 
+nav ul li:hover ul.sub-menu {
+    display: block;
+}
 
+nav ul li ul.sub-menu li {
+    margin: 0;
+}
 
-.logo img {
+nav ul li ul.sub-menu li a {
+    padding: 10px;
+    display: block;
+    color: white;
+}
+
+nav ul li ul.sub-menu li a:hover {
+    background-color: #f39c12;
+}
+
+/* Barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 8px;
+    border: none;
+    background-color: #f39c12;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    color: white;
+}
+
+.search-bar button:hover {
+    background-color: #e67e22;
+}
+
+/* Menu hamburguer */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
     width: 30px;
-    margin-right: 10px;
-    border-radius: 10px;
-    zoom: 650%;
-
+    height: 21px;
+    cursor: pointer;
 }
 
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Menu mobile */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #0a0b0d;
+        z-index: 999;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Seção de ofertas e produtos */
 .ofertas {
     display: flex;
     flex-wrap: wrap;
@@ -98,17 +216,24 @@ header {
     }
 }
 
+/* Footer */
 footer {
     background-color: #0a0b0d;
     color: #d7d7d7;
-    padding: 50px 0;
-    height: 200px; /* Ajuste a altura conforme necessário */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    padding: 20px 0;
 }
 
+footer a {
+    text-decoration: none;
+    color: #d7d7d7;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #f39c12;
+}
+
+/* Footer links e redes sociais */
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -116,23 +241,19 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
+    padding: 20px;
 }
 
 .footer-logo img {
-    width: 100px; /* Ajuste o tamanho do logo conforme necessário */
+    width: 100px;
     margin-bottom: 10px;
-}
-
-.footer-logo p {
-    margin: 0;
-    font-size: 16px;
 }
 
 .footer-links,
 .footer-social {
-    margin: 0 20px;
+    margin: 20px 0;
 }
 
 .footer-links h3,
@@ -150,28 +271,29 @@ footer {
 
 .footer-links li,
 .footer-social li {
-    margin: 15px 0;
-}
-
-.footer-links a,
-.footer-social a {
-    color: #d7d7d7;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover,
-.footer-social a:hover {
-    color: #f39c12;
+    margin: 10px 0;
 }
 
 .footer-social i {
-    font-size: 30px; /* Tamanho dos ícones de redes sociais */
+    font-size: 30px;
     margin: 0 15px;
     transition: color 0.3s ease;
 }
 
 .footer-social i:hover {
     color: #f39c12;
+}
+
+/* Responsividade no footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo,
+    .footer-links,
+    .footer-social {
+        margin-bottom: 20px;
+    }
 }
