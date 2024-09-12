@@ -85,31 +85,44 @@ nav ul li ul.sub-menu li a:hover {
 .search-bar {
     display: flex;
     align-items: center;
-    gap: 10px;
+    margin-bottom: 15px; /* Espaço entre a barra de pesquisa e os links de navegação */
 }
 
-.search-bar input {
-    padding: 8px;
-    border: none;
+.search-bar input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    width: 200px;
+    margin-right: 5px;
 }
 
 .search-bar button {
-    padding: 8px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
     border: none;
+<<<<<<< HEAD
     background-color: white;
+=======
+>>>>>>> 9a49966b313dc15282ff9a86da3c6ae991e1fb5d
     border-radius: 4px;
     cursor: pointer;
 }
 
 .search-bar button i {
+<<<<<<< HEAD
     color: #803eac;
 }
 
 .search-bar button:hover {
     background-color: #cd81ff;
 }
+=======
+    font-size: 16px;
+}
+
+
+>>>>>>> 9a49966b313dc15282ff9a86da3c6ae991e1fb5d
 
 /* Menu hamburguer */
 .hamburger {
@@ -210,6 +223,13 @@ nav ul li ul.sub-menu li a:hover {
 .produtos button:hover {
     background-color: #1a7438;
 }
+
+/*carrossel de slide*/
+
+.carousel-inner {
+    margin-top: -70px;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -363,3 +383,4 @@ nav ul li ul.sub-menu li a:hover {
         flex-direction: column;
     }
 }
+
