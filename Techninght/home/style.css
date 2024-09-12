@@ -211,6 +211,13 @@ nav ul li ul.sub-menu li a:hover {
     background-color: #1a7438;
 }
 
+/*carrossel de slide*/
+
+.carousel-inner {
+    margin-top: -70px;
+}
+
+
 /* Responsividade */
 @media (max-width: 768px) {
     .produtos {
