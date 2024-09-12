@@ -205,7 +205,7 @@ nav ul li ul.sub-menu li a:hover {
 .produtos button {
     margin-top: 10px;
     padding: 10px;
-    background-color: #21934b;
+    background-color: #a966d5;;
     color: white;
     border: none;
     border-radius: 5px;
@@ -213,7 +213,7 @@ nav ul li ul.sub-menu li a:hover {
 }
 
 .produtos button:hover {
-    background-color: #1a7438;
+    background-color: #8438b8;
 }
 
 /*carrossel de slide*/
